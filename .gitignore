@@ -1,0 +1,22 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+dist/
+backend/.env
+dashboard/.env.local
+
+# Test artifacts - real PDFs and generated logs shouldn't go into git
+test/Input/*
+test/HC/Unprocessed/*
+test/TP/Unprocessed/*
+test/Error/*
+test/Logs/*
+!test/Input/.gitkeep
+!test/HC/Unprocessed/.gitkeep
+!test/TP/Unprocessed/.gitkeep
+!test/Error/.gitkeep
+!test/Logs/.gitkeep
