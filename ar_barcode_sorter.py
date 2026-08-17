@@ -75,11 +75,11 @@ else:
 # with whatever's currently seeded in dbo.ControlMappings so a DB outage
 # doesn't silently point the script somewhere stale.
 DEFAULT_PATHS = {
-    "INPUT_DIR": r"C:\Projects\POD\test\Input",
-    "HC_DIR":    r"C:\Projects\POD\test\HC\Unprocessed",
-    "TP_DIR":    r"C:\Projects\POD\test\TP\Unprocessed",
-    "ERROR_DIR": r"C:\Projects\POD\test\Error",
-    "LOG_DIR":   r"C:\Projects\POD\test\Logs",
+    "INPUT_DIR": r"\\hcg-dbn-fs03\NAV_PODS\AR\Input",
+    "HC_DIR":    r"\\hcg-dbn-fs03\NAV_PODS\AR\HC\Unprocessed",
+    "TP_DIR":    r"\\hcg-dbn-fs03\NAV_PODS\AR\TP\Unprocessed",
+    "ERROR_DIR": r"\\hcg-dbn-fs03\NAV_PODS\AR\Error",
+    "LOG_DIR":   r"\\hcg-dbn-fs03\NAV_PODS\AR\Logs",
 }
 
 # Render resolution for barcode scanning. Higher = more reliable but slower.
