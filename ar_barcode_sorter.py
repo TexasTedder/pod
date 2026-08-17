@@ -151,6 +151,19 @@ def extract_barcodes_from_pdf(pdf_path: Path):
     """Render each page of the PDF to an image and decode barcodes with pyzbar.
     Returns a list of decoded string values (deduplicated, order preserved)."""
     import pymupdf as fitz
+
+    # Python 3.8+ no longer auto-searches a DLL's own folder for its
+    # dependencies on Windows (security change to DLL loading). pyzbar's
+    # libzbar-64.dll depends on libiconv.dll sitting right next to it in
+    # the pyzbar package folder, so without explicitly adding that folder
+    # to the DLL search path, the import below fails with a misleading
+    # "Could not find module ... (or one of its dependencies)" error even
+    # though both DLL files are physically present.
+    import pyzbar
+    _pyzbar_dir = Path(pyzbar.__file__).parent
+    if hasattr(os, "add_dll_directory"):
+        os.add_dll_directory(str(_pyzbar_dir))
+
     from pyzbar.pyzbar import decode as zbar_decode
     from PIL import Image
 
